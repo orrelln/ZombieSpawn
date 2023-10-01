@@ -38,6 +38,7 @@ namespace ZombieSpawn
             if (RespawnCount >= plugin.Config.RespawnOn && GetAliveScps().Count <= plugin.Config.SCPCount)
             {
                 Player randPlayer = Helper.GetRandomFromList(ev.Players);
+                ev.Players.Remove(randPlayer);
                 randPlayer.Role.Set(RoleTypeId.Scp0492);
                 randPlayer.Position = RoleExtensions.GetRandomSpawnLocation(RoleTypeId.Scp049).Position;
             }
